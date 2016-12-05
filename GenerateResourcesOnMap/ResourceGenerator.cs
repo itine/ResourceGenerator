@@ -69,5 +69,30 @@ namespace GenerateResourcesOnMap
                 return 22;
             return -1;
         }
+
+        public static int GenerateDecoration(int local)
+        {
+            if (local >= 1 && local <= 10)
+                return 24;
+            if (local > 10 && local <= 20)
+                return 25;
+            if (local > 20 && local <= 30)
+                return 26;
+            if (local > 30 && local <= 40)
+                return 27;
+            if (local > 40 && local <= 50)
+                return 28;
+            if (local > 50 && local <= 60)
+                return 29;
+            if (local > 60 && local <= 70)
+                return 30;
+            if (local > 70 && local <= 80)
+                return 31;
+            if (local > 80 && local <= 90)
+                return 32;
+            if (local > 90 && local <= 100)
+                return 33;
+            return -1;
+        }
     }
 }

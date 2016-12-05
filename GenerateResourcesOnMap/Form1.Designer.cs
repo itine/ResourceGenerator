@@ -114,6 +114,16 @@
             this.imageList1.Images.SetKeyName(21, "12_рынок обмена ресурсов.jpg");
             this.imageList1.Images.SetKeyName(22, "16_табличка с надписью.jpg");
             this.imageList1.Images.SetKeyName(23, "123.png");
+            this.imageList1.Images.SetKeyName(24, "01_елка.jpg");
+            this.imageList1.Images.SetKeyName(25, "02_березка.jpg");
+            this.imageList1.Images.SetKeyName(26, "03_куст.jpg");
+            this.imageList1.Images.SetKeyName(27, "04_кактус.jpg");
+            this.imageList1.Images.SetKeyName(28, "05_норка.jpg");
+            this.imageList1.Images.SetKeyName(29, "06_пенек.jpg");
+            this.imageList1.Images.SetKeyName(30, "07_грибы шампиньоны.jpg");
+            this.imageList1.Images.SetKeyName(31, "08_глаз.jpg");
+            this.imageList1.Images.SetKeyName(32, "09_портал.jpg");
+            this.imageList1.Images.SetKeyName(33, "10_камни декорация.jpg");
             // 
             // Form1
             // 

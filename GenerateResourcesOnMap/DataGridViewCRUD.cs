@@ -73,25 +73,43 @@ namespace GenerateResourcesOnMap
                     if (matr[i, j] <= 400 && matr[i, j] > 1)
                     {
                         dataGridView.Rows[i].Cells[j].Style.BackColor = System.Drawing.Color.Yellow;
-
-                        int localRand = rnd.Next(1, 101);
-                        //create structure
-                        if ((localRand == 1) && !flag)
+                        if (!flag)
                         {
-                            Image img = imageList.Images[ResourceGenerator.GenerateStructure(rnd.Next(1, 101))];
+                            Image img = imageList.Images[23];
+                            int localRand = rnd.Next(1, 101);
+                            //create structure
+                            if (localRand == 1)
+                            {
+                                img = imageList.Images[ResourceGenerator.GenerateStructure(rnd.Next(1, 101))];
+                            }
+                            if (localRand > 1 && localRand <= 30)
+                            {
+                                img = imageList.Images[ResourceGenerator.GenerateDecoration(rnd.Next(1, 101))];
+                                
+                            }
                             DataGridViewImageCell ImageCell = new DataGridViewImageCell();
                             dataGridView.Rows[i].Cells[j] = ImageCell;
                             dataGridView.Rows[i].Cells[j].Value = img;
                         }
+                        
                     }
                     if (matr[i, j] <= 1600 && matr[i, j] > 400)
                     {
                         dataGridView.Rows[i].Cells[j].Style.BackColor = System.Drawing.Color.Blue;
-                        int localRand = rnd.Next(1, 101);
-                        //create structure
-                        if ((localRand == 1) && !flag)
+                        if (!flag)
                         {
-                            Image img = imageList.Images[ResourceGenerator.GenerateStructure(rnd.Next(1, 101))];
+                            Image img = imageList.Images[23];
+                            int localRand = rnd.Next(1, 101);
+                            //create structure
+                            if (localRand == 1)
+                            {
+                                img = imageList.Images[ResourceGenerator.GenerateStructure(rnd.Next(1, 101))];
+                            }
+                            if (localRand > 1 && localRand <= 27)
+                            {
+                                img = imageList.Images[ResourceGenerator.GenerateDecoration(rnd.Next(1, 101))];
+
+                            }
                             DataGridViewImageCell ImageCell = new DataGridViewImageCell();
                             dataGridView.Rows[i].Cells[j] = ImageCell;
                             dataGridView.Rows[i].Cells[j].Value = img;
@@ -100,24 +118,42 @@ namespace GenerateResourcesOnMap
                     if (matr[i, j] <= 3600 && matr[i, j] > 1600)
                     {
                         dataGridView.Rows[i].Cells[j].Style.BackColor = System.Drawing.Color.Brown;
-                        int localRand = rnd.Next(1, 101);
-                        //create structure
-                        if ((localRand == 1) && !flag)
+                        if (!flag)
                         {
-                            Image img = imageList.Images[ResourceGenerator.GenerateStructure(rnd.Next(1, 101))];
+                            Image img = imageList.Images[23];
+                            int localRand = rnd.Next(1, 101);
+                            //create structure
+                            if (localRand == 1)
+                            {
+                                img = imageList.Images[ResourceGenerator.GenerateStructure(rnd.Next(1, 101))];
+                            }
+                            if (localRand > 1 && localRand <= 22)
+                            {
+                                img = imageList.Images[ResourceGenerator.GenerateDecoration(rnd.Next(1, 101))];
+                            }
                             DataGridViewImageCell ImageCell = new DataGridViewImageCell();
                             dataGridView.Rows[i].Cells[j] = ImageCell;
                             dataGridView.Rows[i].Cells[j].Value = img;
                         }
+                        
                     }
                     if (matr[i, j] <= 6400 && matr[i, j] > 3600)
                     {
                         dataGridView.Rows[i].Cells[j].Style.BackColor = System.Drawing.Color.Cyan;
-                        int localRand = rnd.Next(1, 101);
-                        //create structure
-                        if ((localRand == 1) && !flag)
+                        if (!flag)
                         {
-                            Image img = imageList.Images[ResourceGenerator.GenerateStructure(rnd.Next(1, 101))];
+                            Image img = imageList.Images[23];
+                            int localRand = rnd.Next(1, 101);
+                            //create structure
+                            if (localRand == 1)
+                            {
+                                img = imageList.Images[ResourceGenerator.GenerateStructure(rnd.Next(1, 101))];
+                            }
+                            if (localRand > 1 && localRand <= 19)
+                            {
+                                img = imageList.Images[ResourceGenerator.GenerateDecoration(rnd.Next(1, 101))];
+
+                            }
                             DataGridViewImageCell ImageCell = new DataGridViewImageCell();
                             dataGridView.Rows[i].Cells[j] = ImageCell;
                             dataGridView.Rows[i].Cells[j].Value = img;
@@ -126,41 +162,71 @@ namespace GenerateResourcesOnMap
                     if (matr[i, j] <= 14400 && matr[i, j] > 6400)
                     {
                         dataGridView.Rows[i].Cells[j].Style.BackColor = System.Drawing.Color.Fuchsia;
-                        int localRand = rnd.Next(1, 101);
-                        //create structure
-                        if ((localRand == 1) && !flag)
+                        if (!flag)
                         {
-                            Image img = imageList.Images[ResourceGenerator.GenerateStructure(rnd.Next(1, 101))];
+                            Image img = imageList.Images[23];
+                            int localRand = rnd.Next(1, 101);
+                            //create structure
+                            if (localRand == 1)
+                            {
+                                img = imageList.Images[ResourceGenerator.GenerateStructure(rnd.Next(1, 101))];
+                            }
+                            if (localRand > 1 && localRand <= 14)
+                            {
+                                img = imageList.Images[ResourceGenerator.GenerateDecoration(rnd.Next(1, 101))];
+
+                            }
                             DataGridViewImageCell ImageCell = new DataGridViewImageCell();
                             dataGridView.Rows[i].Cells[j] = ImageCell;
                             dataGridView.Rows[i].Cells[j].Value = img;
                         }
+                       
                     }
                     if (matr[i, j] <= 25600 && matr[i, j] > 14400)
                     {
                         dataGridView.Rows[i].Cells[j].Style.BackColor = System.Drawing.Color.Orange;
-                        int localRand = rnd.Next(1, 101);
-                        //create structure
-                        if ((localRand == 1) && !flag)
+                        if (!flag)
                         {
-                            Image img = imageList.Images[ResourceGenerator.GenerateStructure(rnd.Next(1, 101))];
+                            Image img = imageList.Images[23];
+                            int localRand = rnd.Next(1, 101);
+                            //create structure
+                            if (localRand == 1)
+                            {
+                                img = imageList.Images[ResourceGenerator.GenerateStructure(rnd.Next(1, 101))];
+                            }
+                            if (localRand > 1 && localRand <= 16)
+                            {
+                                img = imageList.Images[ResourceGenerator.GenerateDecoration(rnd.Next(1, 101))];
+
+                            }
                             DataGridViewImageCell ImageCell = new DataGridViewImageCell();
                             dataGridView.Rows[i].Cells[j] = ImageCell;
                             dataGridView.Rows[i].Cells[j].Value = img;
                         }
+                        
                     }
                     if (matr[i, j] <= 40000 && matr[i, j] > 25600)
                     {
                         dataGridView.Rows[i].Cells[j].Style.BackColor = System.Drawing.Color.Red;
-                        int localRand = rnd.Next(1, 101);
-                        //create structure
-                        if ((localRand == 1) && !flag)
+                        if (!flag)
                         {
-                            Image img = imageList.Images[ResourceGenerator.GenerateStructure(rnd.Next(1, 101))];
+                            Image img = imageList.Images[23];
+                            int localRand = rnd.Next(1, 101);
+                            //create structure
+                            if (localRand == 1)
+                            {
+                                img = imageList.Images[ResourceGenerator.GenerateStructure(rnd.Next(1, 101))];
+                            }
+                            if (localRand > 1 && localRand <= 16)
+                            {
+                                img = imageList.Images[ResourceGenerator.GenerateDecoration(rnd.Next(1, 101))];
+
+                            }
                             DataGridViewImageCell ImageCell = new DataGridViewImageCell();
                             dataGridView.Rows[i].Cells[j] = ImageCell;
                             dataGridView.Rows[i].Cells[j].Value = img;
                         }
+                        
                     }
                         
                 }
