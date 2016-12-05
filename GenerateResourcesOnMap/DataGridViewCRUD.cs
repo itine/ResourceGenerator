@@ -48,7 +48,7 @@ namespace GenerateResourcesOnMap
         /// </summary>
         /// <param name="matr">Матрица которую выводим в DataGridView</param>
         /// <param name="dataGridView">DataGridView в который выводим</param>
-        public static void Create(int[,] matr, DataGridView dataGridView, ImageList imageList)
+        public static void Create(int[,] matr, DataGridView dataGridView, ImageList imageList, Label label)
         {
             //указываем контроллу в который пишем количество строк и столбцов
             dataGridView.RowCount = matr.GetLength(0);
@@ -256,12 +256,14 @@ namespace GenerateResourcesOnMap
                         
                 }
             }
+
             for (int i = 0; i <= dataGridView.Columns.Count - 1; i++)
             {
-                dataGridView.Columns[i].Width = 35;
-                dataGridView.Rows[i].Height = 35;
+                dataGridView.Columns[i].Width = 25;
+                dataGridView.Rows[i].Height = 25;
 
             }
+            label.Text = "Загрузка завершена!";
         }
     }
 }

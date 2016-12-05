@@ -76,13 +76,29 @@ namespace GenerateResourcesOnMap
             {
                 column.ValueType = typeof(System.Drawing.Bitmap);
             }
-            DataGridViewCRUD.Create(GenerateCoordinates(), dataGridView1, imageList1);
+            DataGridViewCRUD.Create(GenerateCoordinates(), dataGridView1, imageList1, label1);
             
         }
+        
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            
+            for (int i = 0; i <= dataGridView1.Columns.Count - 1; i++)
+            {
+                dataGridView1.Columns[i].Width = dataGridView1.Columns[i].Width+5;
+                dataGridView1.Rows[i].Height = dataGridView1.Rows[i].Height+5;
+
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i <= dataGridView1.Columns.Count - 1; i++)
+            {
+                dataGridView1.Columns[i].Width = dataGridView1.Columns[i].Width - 5;
+                dataGridView1.Rows[i].Height = dataGridView1.Rows[i].Height - 5;
+
+            }
         }
     }
 }
