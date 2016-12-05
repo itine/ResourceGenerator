@@ -162,20 +162,6 @@ namespace GenerateResourcesOnMap
                             dataGridView.Rows[i].Cells[j].Value = img;
                         }
                     }
-                    
-                    //int local = rand.Next(1, 101);
-                    //if (ResourceGenerator.IsEmptyCell(local))
-                    //    dataGridView.Rows[i].Cells[j].Value = 0;
-                    //else
-                    //{
-                    //    dataGridView.Rows[i].Cells[j].Value = matr[i, j];
-                    //    //if (matr[i, j] <= 400 && matr[i, j] > 1)
-                    //    //{
-                    //    //    var img = imageList.Images[ResourceGenerator.GenerateStructure(randForStructure.Next(1,101))];
-                    //    //    DGic.Value = img;
-                    //    //    dataGridView[i, j] = DGic;
-                    //    //}
-                    //}
                         
                 }
             }
@@ -183,13 +169,6 @@ namespace GenerateResourcesOnMap
             {
                 dataGridView.Columns[i].Width = 25;
             }
-            //for (int j = 0; j <= dataGridView.Columns.Count - 1; j++)
-            //{
-            //    for (int k = 0; k <= dataGridView.Rows.Count -1; k++)
-            //    {
-                    
-            //    }
-            //}
         }
     }
 }
