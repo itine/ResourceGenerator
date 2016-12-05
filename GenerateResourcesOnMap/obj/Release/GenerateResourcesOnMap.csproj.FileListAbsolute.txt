@@ -1,0 +1,8 @@
+C:\Users\alexe\OneDrive\Documents\Visual Studio 2015\Projects\ResourceGenerator\GenerateResourcesOnMap\bin\Release\GenerateResourcesOnMap.exe.config
+C:\Users\alexe\OneDrive\Documents\Visual Studio 2015\Projects\ResourceGenerator\GenerateResourcesOnMap\bin\Release\GenerateResourcesOnMap.exe
+C:\Users\alexe\OneDrive\Documents\Visual Studio 2015\Projects\ResourceGenerator\GenerateResourcesOnMap\bin\Release\GenerateResourcesOnMap.pdb
+C:\Users\alexe\OneDrive\Documents\Visual Studio 2015\Projects\ResourceGenerator\GenerateResourcesOnMap\obj\Release\GenerateResourcesOnMap.Form1.resources
+C:\Users\alexe\OneDrive\Documents\Visual Studio 2015\Projects\ResourceGenerator\GenerateResourcesOnMap\obj\Release\GenerateResourcesOnMap.Properties.Resources.resources
+C:\Users\alexe\OneDrive\Documents\Visual Studio 2015\Projects\ResourceGenerator\GenerateResourcesOnMap\obj\Release\GenerateResourcesOnMap.csproj.GenerateResource.Cache
+C:\Users\alexe\OneDrive\Documents\Visual Studio 2015\Projects\ResourceGenerator\GenerateResourcesOnMap\obj\Release\GenerateResourcesOnMap.exe
+C:\Users\alexe\OneDrive\Documents\Visual Studio 2015\Projects\ResourceGenerator\GenerateResourcesOnMap\obj\Release\GenerateResourcesOnMap.pdb
