@@ -124,6 +124,17 @@
             this.imageList1.Images.SetKeyName(31, "08_глаз.jpg");
             this.imageList1.Images.SetKeyName(32, "09_портал.jpg");
             this.imageList1.Images.SetKeyName(33, "10_камни декорация.jpg");
+            this.imageList1.Images.SetKeyName(34, "01_золото.png");
+            this.imageList1.Images.SetKeyName(35, "02_сундук.png");
+            this.imageList1.Images.SetKeyName(36, "03_костерок.png");
+            this.imageList1.Images.SetKeyName(37, "04_дерево.png");
+            this.imageList1.Images.SetKeyName(38, "05_камни.png");
+            this.imageList1.Images.SetKeyName(39, "06_ртуть.png");
+            this.imageList1.Images.SetKeyName(40, "07_сера.png");
+            this.imageList1.Images.SetKeyName(41, "08_кристаллы.png");
+            this.imageList1.Images.SetKeyName(42, "09_самоцветы.png");
+            this.imageList1.Images.SetKeyName(43, "10_банка жизни.png");
+            this.imageList1.Images.SetKeyName(44, "11_банка маны.png");
             // 
             // Form1
             // 

@@ -9,13 +9,13 @@ namespace GenerateResourcesOnMap
 {
     public class ResourceGenerator
     {
-        
         public static bool IsEmptyCell(int local)
         {
             if (local <= 80)
                 return true;
             return false;
         }
+
         public static int GenerateStructure(int local)
         {
             if (local == 1)
@@ -92,6 +92,33 @@ namespace GenerateResourcesOnMap
                 return 32;
             if (local > 90 && local <= 100)
                 return 33;
+            return -1;
+        }
+
+        public static int GenerateResource(int local)
+        {
+            if (local >= 1 && local <= 20)
+                return 34;
+            if (local >= 20 && local <= 30)
+                return 35;
+            if (local >= 30 && local <= 36)
+                return 36;
+            if (local >= 36 && local <= 52)
+                return 37;
+            if (local >= 52 && local <= 68)
+                return 38;
+            if (local >= 68 && local <= 75)
+                return 39;
+            if (local >= 75 && local <= 82)
+                return 40;
+            if (local >= 82 && local <= 89)
+                return 41;
+            if (local >= 89 && local <= 96)
+                return 42;
+            if (local >= 96 && local <= 98)
+                return 43;
+            if (local >= 98 && local <= 100)
+                return 44;
             return -1;
         }
     }
