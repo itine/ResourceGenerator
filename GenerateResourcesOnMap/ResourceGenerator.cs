@@ -9,6 +9,7 @@ namespace GenerateResourcesOnMap
 {
     public class ResourceGenerator
     {
+        public static Random rnd = new Random();
         public static bool IsEmptyCell(int local)
         {
             if (local <= 80)
@@ -121,5 +122,19 @@ namespace GenerateResourcesOnMap
                 return 44;
             return -1;
         }
+
+        public static int GenerateArtifact(int local)
+        {
+            if (local >= 1 && local <= 86)
+                return rnd.Next(45,68);
+            if (local > 86 && local <= 89)
+                return 68;
+            if(local > 89 && local <= 90)
+                return 69;
+            if (local > 90 && local <= 100)
+                return 70;
+            return -1;
+        }
+    
     }
 }

@@ -100,5 +100,11 @@ namespace GenerateResourcesOnMap
 
             }
         }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            dataGridView1.Bounds = new Rectangle(95, 15, this.Width-150, this.Height - 50);
+
+        }
     }
 }
