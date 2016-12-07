@@ -10,6 +10,7 @@ namespace GenerateResourcesOnMap
     public class ResourceGenerator
     {
         public static Random rnd = new Random();
+
         public static bool IsEmptyCell(int local)
         {
             if (local <= 80)
@@ -135,6 +136,126 @@ namespace GenerateResourcesOnMap
                 return 70;
             return -1;
         }
-    
+
+        public static int GenerateMonster(int zone, int local)
+        {
+            switch (zone)
+            {
+                case 1:
+                    if (local >= 1 && local <= 68)
+                        return 72;
+                    if (local > 68 && local <= 81)
+                        return 73;
+                    if (local > 81 && local <= 89)
+                        return 74;
+                    if (local > 89 && local <= 94)
+                        return 75;
+                    if (local > 94 && local <= 97)
+                        return 76;
+                    if (local > 97 && local <= 99)
+                        return 77;
+                    if (local > 99 && local <= 100)
+                        return 78;
+                    break;
+                case 2:
+                    if (local >= 1 && local <= 13)
+                        return 72;
+                    if (local > 13 && local <= 69)
+                        return 73;
+                    if (local > 69 && local <= 82)
+                        return 74;
+                    if (local > 82 && local <= 90)
+                        return 75;
+                    if (local > 90 && local <= 95)
+                        return 76;
+                    if (local > 95 && local <= 98)
+                        return 77;
+                    if (local > 98 && local <= 100)
+                        return 78;
+                    break;
+                case 3:
+                    if (local >= 1 && local <= 8)
+                        return 72;
+                    if (local > 8 && local <= 21)
+                        return 73;
+                    if (local > 21 && local <= 71)
+                        return 74;
+                    if (local > 71 && local <= 84)
+                        return 75;
+                    if (local > 84 && local <= 92)
+                        return 76;
+                    if (local > 92 && local <= 97)
+                        return 77;
+                    if (local > 97 && local <= 100)
+                        return 78;
+                    break;
+                case 4:
+                    if (local >= 1 && local <= 5)
+                        return 72;
+                    if (local > 5 && local <= 13)
+                        return 73;
+                    if (local > 13 && local <= 26)
+                        return 74;
+                    if (local > 26 && local <= 74)
+                        return 75;
+                    if (local > 74 && local <= 87)
+                        return 76;
+                    if (local > 87 && local <= 95)
+                        return 77;
+                    if (local > 95 && local <= 100)
+                        return 78;
+                    break;
+                case 5:
+                    if (local >= 1 && local <= 8)
+                        return 78;
+                    if (local > 8 && local <= 21)
+                        return 77;
+                    if (local > 21 && local <= 71)
+                        return 76;
+                    if (local > 71 && local <= 84)
+                        return 75;
+                    if (local > 84 && local <= 92)
+                        return 74;
+                    if (local > 92 && local <= 97)
+                        return 73;
+                    if (local > 97 && local <= 100)
+                        return 72;
+                    break;
+                case 6:
+                    if (local >= 1 && local <= 13)
+                        return 78;
+                    if (local > 13 && local <= 69)
+                        return 77;
+                    if (local > 69 && local <= 82)
+                        return 76;
+                    if (local > 82 && local <= 90)
+                        return 75;
+                    if (local > 90 && local <= 95)
+                        return 74;
+                    if (local > 95 && local <= 98)
+                        return 73;
+                    if (local > 98 && local <= 100)
+                        return 72;
+                    break;
+                case 7:
+                    if (local >= 1 && local <= 68)
+                        return 78;
+                    if (local > 68 && local <= 81)
+                        return 77;
+                    if (local > 81 && local <= 89)
+                        return 76;
+                    if (local > 89 && local <= 94)
+                        return 75;
+                    if (local > 94 && local <= 97)
+                        return 74;
+                    if (local > 97 && local <= 99)
+                        return 73;
+                    if (local > 99 && local <= 100)
+                        return 72;
+                    break;
+            }
+            return -1;
+        }
+
     }
 }

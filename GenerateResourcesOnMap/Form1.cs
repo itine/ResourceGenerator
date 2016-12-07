@@ -18,7 +18,7 @@ namespace GenerateResourcesOnMap
         }
         private int [,] GenerateCoordinates()
         {
-            int[,] msv = new int[200, 200];
+            int[,] msv = new int[202, 202];
             int i = msv.GetLength(0) / 2;
             int j = msv.GetLength(1) / 2;
             int value = 0;

@@ -6,3 +6,4 @@ C:\Users\alexe\OneDrive\Documents\Visual Studio 2015\Projects\ResourceGenerator\
 C:\Users\alexe\OneDrive\Documents\Visual Studio 2015\Projects\ResourceGenerator\GenerateResourcesOnMap\obj\Release\GenerateResourcesOnMap.csproj.GenerateResource.Cache
 C:\Users\alexe\OneDrive\Documents\Visual Studio 2015\Projects\ResourceGenerator\GenerateResourcesOnMap\obj\Release\GenerateResourcesOnMap.exe
 C:\Users\alexe\OneDrive\Documents\Visual Studio 2015\Projects\ResourceGenerator\GenerateResourcesOnMap\obj\Release\GenerateResourcesOnMap.pdb
+C:\Users\alexe\OneDrive\Documents\Visual Studio 2015\Projects\ResourceGenerator\GenerateResourcesOnMap\obj\Release\GenerateResourcesOnMap.csprojResolveAssemblyReference.cache
