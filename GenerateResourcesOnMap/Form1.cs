@@ -12,11 +12,15 @@ namespace GenerateResourcesOnMap
 {
     public partial class Form1 : Form
     {
+        List<Image> AllMonsters = new List<Image>();
+        Button[] ImageButtons = new Button[2];
         public Form1()
         {
+            ImageButtons[0] = button4;
+            ImageButtons[1] = button5;
             InitializeComponent();
         }
-        private int [,] GenerateCoordinates()
+        private int [,] GenerateMassive()
         {
             int[,] msv = new int[202, 202];
             int i = msv.GetLength(0) / 2;
@@ -76,7 +80,7 @@ namespace GenerateResourcesOnMap
             {
                 column.ValueType = typeof(System.Drawing.Bitmap);
             }
-            DataGridViewCRUD.Create(GenerateCoordinates(), dataGridView1, imageList1, label1);
+            DataGridViewCRUD.Create(GenerateMassive(), dataGridView1, imageList1, label1, AllMonsters);
             
         }
         
@@ -105,6 +109,71 @@ namespace GenerateResourcesOnMap
         {
             dataGridView1.Bounds = new Rectangle(95, 15, this.Width-150, this.Height - 50);
 
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            for(int i=72; i<=78; i++)
+            {
+                AllMonsters.Add(imageList1.Images[i]);
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int count = 0;
+            Bitmap Image;
+            Image = (Bitmap)imageList1.Images[24];
+            for (int i = 0; i < dataGridView1.RowCount; i++)
+            {
+                for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                {
+                    if (dataGridView1.Rows[i].Cells[j].Value!=null && (CompareImages((Bitmap)dataGridView1.Rows[i].Cells[j].Value, Image)))
+                    {
+                        count++;
+                    }
+                }
+            }
+            label1.Text += count;
+        }
+
+        private static bool CompareImages(Bitmap image1, Bitmap image2)
+        {
+            if (image1.Width == image2.Width && image1.Height == image2.Height)
+            {
+                for (int i = 0; i < image1.Width; i++)
+                {
+                    for (int j = 0; j < image1.Height; j++)
+                    {
+                        if (image1.GetPixel(i, j) != image2.GetPixel(i, j))
+                        {
+                            return false;
+                        }
+                    }
+                }
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                panel1.Visible = true;
+                for (int i = 0; i<= ImageButtons.Length-1; i++)
+                {
+                    Bitmap Image = (Bitmap)imageList1.Images[i]; 
+                    ImageButtons[i].BackgroundImage = Image;
+                }
+            }
+            else
+            {
+                panel1.Visible = false;
+            }
         }
     }
 }

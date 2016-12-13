@@ -48,7 +48,7 @@ namespace GenerateResourcesOnMap
         /// </summary>
         /// <param name="matr">Матрица которую выводим в DataGridView</param>
         /// <param name="dataGridView">DataGridView в который выводим</param>
-        public static void Create(int[,] matr, DataGridView dataGridView, ImageList imageList, Label label)
+        public static void Create(int[,] matr, DataGridView dataGridView, ImageList imageList, Label label, List<Image> allMonsters)
         {
             //указываем контроллу в который пишем количество строк и столбцов
             dataGridView.RowCount = matr.GetLength(0);
@@ -105,10 +105,26 @@ namespace GenerateResourcesOnMap
                 {
                     if (dataGridView.Rows[i].Cells[j].Value != null)
                         continue;
-                    bool flag = ResourceGenerator.IsEmptyCell(rnd.Next(1, 101));
-                    if (matr[i, j] <= 400 && matr[i, j] > 1)
+
+                    if (!ResourceGenerator.IsEmptyCell(rnd.Next(1, 101)))
                     {
-                        if (!flag)
+                        //bool flag = false;
+                        //if (i != 0)
+                        //    foreach (var monster in allMonsters)
+                        //    {
+                        //        if (dataGridView.Rows[i - 1].Cells[j].Value != null)
+                        //        {
+                        //            Image monsterImg = imageList.Images[23];
+                        //            DataGridViewImageCell MonsterImageCell = new DataGridViewImageCell();
+                        //            dataGridView.Rows[i].Cells[j] = MonsterImageCell;
+                        //            dataGridView.Rows[i].Cells[j].Value = monsterImg;
+                        //            flag = true;
+                        //        }
+                        //    }
+                        //if (flag)
+                        //    break;
+
+                        if (matr[i, j] <= 400 && matr[i, j] > 1)
                         {
                             Image img = imageList.Images[23];
                             int localRand = rnd.Next(1, 101);
@@ -167,12 +183,9 @@ namespace GenerateResourcesOnMap
                             DataGridViewImageCell ImageCell = new DataGridViewImageCell();
                             dataGridView.Rows[i].Cells[j] = ImageCell;
                             dataGridView.Rows[i].Cells[j].Value = img;
-                        }
 
-                    }
-                    if (matr[i, j] <= 1600 && matr[i, j] > 400)
-                    {
-                        if (!flag)
+                        }
+                        if (matr[i, j] <= 1600 && matr[i, j] > 400)
                         {
                             Image img = imageList.Images[23];
                             int localRand = rnd.Next(1, 101);
@@ -232,10 +245,7 @@ namespace GenerateResourcesOnMap
                             dataGridView.Rows[i].Cells[j] = ImageCell;
                             dataGridView.Rows[i].Cells[j].Value = img;
                         }
-                    }
-                    if (matr[i, j] <= 3600 && matr[i, j] > 1600)
-                    {
-                        if (!flag)
+                        if (matr[i, j] <= 3600 && matr[i, j] > 1600)
                         {
                             Image img = imageList.Images[23];
                             int localRand = rnd.Next(1, 101);
@@ -295,11 +305,7 @@ namespace GenerateResourcesOnMap
                             dataGridView.Rows[i].Cells[j] = ImageCell;
                             dataGridView.Rows[i].Cells[j].Value = img;
                         }
-
-                    }
-                    if (matr[i, j] <= 6400 && matr[i, j] > 3600)
-                    {
-                        if (!flag)
+                        if (matr[i, j] <= 6400 && matr[i, j] > 3600)
                         {
                             Image img = imageList.Images[23];
                             int localRand = rnd.Next(1, 101);
@@ -359,10 +365,7 @@ namespace GenerateResourcesOnMap
                             dataGridView.Rows[i].Cells[j] = ImageCell;
                             dataGridView.Rows[i].Cells[j].Value = img;
                         }
-                    }
-                    if (matr[i, j] <= 14400 && matr[i, j] > 6400)
-                    {
-                        if (!flag)
+                        if (matr[i, j] <= 14400 && matr[i, j] > 6400)
                         {
                             Image img = imageList.Images[23];
                             int localRand = rnd.Next(1, 101);
@@ -422,11 +425,7 @@ namespace GenerateResourcesOnMap
                             dataGridView.Rows[i].Cells[j] = ImageCell;
                             dataGridView.Rows[i].Cells[j].Value = img;
                         }
-
-                    }
-                    if (matr[i, j] <= 25600 && matr[i, j] > 14400)
-                    {
-                        if (!flag)
+                        if (matr[i, j] <= 25600 && matr[i, j] > 14400)
                         {
                             Image img = imageList.Images[23];
                             int localRand = rnd.Next(1, 101);
@@ -470,7 +469,7 @@ namespace GenerateResourcesOnMap
                                 }
                                 else
                                 {
-                                   
+
                                     dataGridView.Rows[i].Cells[j - 1] = MonsterImageCell;
                                     dataGridView.Rows[i].Cells[j - 1].Value = monsterImg;
                                 }
@@ -486,12 +485,9 @@ namespace GenerateResourcesOnMap
                             DataGridViewImageCell ImageCell = new DataGridViewImageCell();
                             dataGridView.Rows[i].Cells[j] = ImageCell;
                             dataGridView.Rows[i].Cells[j].Value = img;
-                        }
 
-                    }
-                    if (matr[i, j] <= 40000 && matr[i, j] > 25600)
-                    {
-                        if (!flag)
+                        }
+                        if (matr[i, j] <= 40000 && matr[i, j] > 25600)
                         {
                             Image img = imageList.Images[23];
                             int localRand = rnd.Next(1, 101);
@@ -518,8 +514,8 @@ namespace GenerateResourcesOnMap
                                     }
                                     else
                                     {
-                                        dataGridView.Rows[i].Cells[j-1] = MonsterImageCell;
-                                        dataGridView.Rows[i].Cells[j-1].Value = monsterImg;
+                                        dataGridView.Rows[i].Cells[j - 1] = MonsterImageCell;
+                                        dataGridView.Rows[i].Cells[j - 1].Value = monsterImg;
                                     }
                                 }
                             }
@@ -535,8 +531,8 @@ namespace GenerateResourcesOnMap
                                 }
                                 else
                                 {
-                                    dataGridView.Rows[i].Cells[j-1] = MonsterImageCell;
-                                    dataGridView.Rows[i].Cells[j-1].Value = monsterImg;
+                                    dataGridView.Rows[i].Cells[j - 1] = MonsterImageCell;
+                                    dataGridView.Rows[i].Cells[j - 1].Value = monsterImg;
                                 }
                             }
                             if (localRand > 62 && localRand <= 66)
@@ -551,17 +547,13 @@ namespace GenerateResourcesOnMap
                             dataGridView.Rows[i].Cells[j] = ImageCell;
                             dataGridView.Rows[i].Cells[j].Value = img;
                         }
-
                     }
-                    
                 }
-
-                for (int k = 0; k <= dataGridView.Columns.Count - 1; k++)
-                {
-                    dataGridView.Columns[k].Width = 25;
-                    dataGridView.Rows[k].Height = 25;
-                }
-                label.Text = "Загрузка завершена!";
+            }
+            for (int k = 0; k <= dataGridView.Columns.Count - 1; k++)
+            {
+                dataGridView.Columns[k].Width = 25;
+                dataGridView.Rows[k].Height = 25;
             }
         }
     }
