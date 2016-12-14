@@ -40,22 +40,22 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // showButton
             // 
-            this.showButton.Location = new System.Drawing.Point(12, 37);
+            this.showButton.Location = new System.Drawing.Point(2, 56);
             this.showButton.Name = "showButton";
-            this.showButton.Size = new System.Drawing.Size(75, 23);
+            this.showButton.Size = new System.Drawing.Size(103, 23);
             this.showButton.TabIndex = 6;
-            this.showButton.Text = "Показать";
+            this.showButton.Text = "Сгенерировать";
             this.showButton.UseVisualStyleBackColor = true;
             this.showButton.Click += new System.EventHandler(this.showButton_Click);
             // 
@@ -79,7 +79,7 @@
             dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle22;
-            this.dataGridView1.Location = new System.Drawing.Point(100, 7);
+            this.dataGridView1.Location = new System.Drawing.Point(111, 8);
             this.dataGridView1.Name = "dataGridView1";
             dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
@@ -181,9 +181,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 8);
+            this.button1.Location = new System.Drawing.Point(2, 8);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(24, 23);
+            this.button1.Size = new System.Drawing.Size(41, 42);
             this.button1.TabIndex = 8;
             this.button1.Text = "+";
             this.button1.UseVisualStyleBackColor = true;
@@ -193,7 +193,7 @@
             // 
             this.button2.Location = new System.Drawing.Point(63, 8);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(24, 23);
+            this.button2.Size = new System.Drawing.Size(42, 42);
             this.button2.TabIndex = 9;
             this.button2.Text = "-";
             this.button2.UseVisualStyleBackColor = true;
@@ -203,36 +203,27 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(1, 209);
+            this.label1.Location = new System.Drawing.Point(12, 177);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(7, 12);
             this.label1.TabIndex = 10;
             this.label1.Text = " ";
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(12, 277);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "Статистика";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button4);
+            this.panel1.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.panel1.Controls.Add(this.dataGridView2);
             this.panel1.Location = new System.Drawing.Point(142, 37);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1182, 657);
+            this.panel1.Size = new System.Drawing.Size(568, 663);
             this.panel1.TabIndex = 12;
             this.panel1.Visible = false;
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(10, 240);
+            this.checkBox1.Enabled = false;
+            this.checkBox1.Location = new System.Drawing.Point(12, 101);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(84, 17);
             this.checkBox1.TabIndex = 13;
@@ -240,32 +231,30 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // button4
+            // dataGridView2
             // 
-            this.button4.Location = new System.Drawing.Point(26, 21);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(71, 64);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.dataGridView2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedVertical;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(562, 657);
+            this.dataGridView2.TabIndex = 0;
             // 
-            // button5
+            // progressBar1
             // 
-            this.button5.Location = new System.Drawing.Point(115, 21);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(71, 64);
-            this.button5.TabIndex = 1;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
+            this.progressBar1.Location = new System.Drawing.Point(2, 124);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(103, 23);
+            this.progressBar1.TabIndex = 14;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1362, 741);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -278,6 +267,7 @@
             this.Resize += new System.EventHandler(this.Form1_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -290,11 +280,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 

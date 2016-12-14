@@ -48,18 +48,22 @@ namespace GenerateResourcesOnMap
         /// </summary>
         /// <param name="matr">Матрица которую выводим в DataGridView</param>
         /// <param name="dataGridView">DataGridView в который выводим</param>
-        public static void Create(int[,] matr, DataGridView dataGridView, ImageList imageList, Label label, List<Image> allMonsters)
+        public static void Create(int[,] matr, DataGridView dataGridView, ImageList imageList, Label label, List<Image> allMonsters, ProgressBar progressBar)
         {
             //указываем контроллу в который пишем количество строк и столбцов
             dataGridView.RowCount = matr.GetLength(0);
-
             dataGridView.ColumnCount = matr.GetLength(1);
+
+            progressBar.Maximum = matr.GetLength(0) * 2;
+            int progressBarValue = 0;
 
             //окраска фона
             for (int i = 0; i < matr.GetLength(0); i++)
             {
+                progressBar.Value = progressBarValue++;
                 for (int j = 0; j < matr.GetLength(1); j++)
                 {
+                    
                     if (matr[i, j] == 1)
                     {
                         dataGridView.Rows[i].Cells[j].Style.BackColor = System.Drawing.Color.Green;
@@ -98,9 +102,9 @@ namespace GenerateResourcesOnMap
                     }
                 }
             }
-
             for (int i = 0; i < matr.GetLength(0); i++)
             {
+                progressBar.Value = progressBarValue++;
                 for (int j = 0; j < matr.GetLength(1); j++)
                 {
                     if (dataGridView.Rows[i].Cells[j].Value != null)
@@ -555,6 +559,7 @@ namespace GenerateResourcesOnMap
                 dataGridView.Columns[k].Width = 25;
                 dataGridView.Rows[k].Height = 25;
             }
+            progressBar.Value = 0;
         }
     }
 }

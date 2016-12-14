@@ -16,11 +16,9 @@ namespace GenerateResourcesOnMap
         Button[] ImageButtons = new Button[2];
         public Form1()
         {
-            ImageButtons[0] = button4;
-            ImageButtons[1] = button5;
             InitializeComponent();
         }
-        private int [,] GenerateMassive()
+        private int[,] GenerateMassive()
         {
             int[,] msv = new int[202, 202];
             int i = msv.GetLength(0) / 2;
@@ -80,17 +78,17 @@ namespace GenerateResourcesOnMap
             {
                 column.ValueType = typeof(System.Drawing.Bitmap);
             }
-            DataGridViewCRUD.Create(GenerateMassive(), dataGridView1, imageList1, label1, AllMonsters);
-            
+            DataGridViewCRUD.Create(GenerateMassive(), dataGridView1, imageList1, label1, AllMonsters, progressBar1);
+            checkBox1.Enabled = true;
         }
-        
+
 
         private void button1_Click(object sender, EventArgs e)
         {
             for (int i = 0; i <= dataGridView1.Columns.Count - 1; i++)
             {
-                dataGridView1.Columns[i].Width = dataGridView1.Columns[i].Width+5;
-                dataGridView1.Rows[i].Height = dataGridView1.Rows[i].Height+5;
+                dataGridView1.Columns[i].Width = dataGridView1.Columns[i].Width + 5;
+                dataGridView1.Rows[i].Height = dataGridView1.Rows[i].Height + 5;
 
             }
         }
@@ -107,13 +105,13 @@ namespace GenerateResourcesOnMap
 
         private void Form1_Resize(object sender, EventArgs e)
         {
-            dataGridView1.Bounds = new Rectangle(95, 15, this.Width-150, this.Height - 50);
+            dataGridView1.Bounds = new Rectangle(95, 15, this.Width - 150, this.Height - 50);
 
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            for(int i=72; i<=78; i++)
+            for (int i = 72; i <= 78; i++)
             {
                 AllMonsters.Add(imageList1.Images[i]);
             }
@@ -128,7 +126,7 @@ namespace GenerateResourcesOnMap
             {
                 for (int j = 0; j < dataGridView1.Columns.Count; j++)
                 {
-                    if (dataGridView1.Rows[i].Cells[j].Value!=null && (CompareImages((Bitmap)dataGridView1.Rows[i].Cells[j].Value, Image)))
+                    if (dataGridView1.Rows[i].Cells[j].Value != null && (CompareImages((Bitmap)dataGridView1.Rows[i].Cells[j].Value, Image)))
                     {
                         count++;
                     }
@@ -164,11 +162,30 @@ namespace GenerateResourcesOnMap
             if (checkBox1.Checked)
             {
                 panel1.Visible = true;
-                for (int i = 0; i<= ImageButtons.Length-1; i++)
+                dataGridView2.RowCount = imageList1.Images.Count;
+                dataGridView2.ColumnCount = 2;
+                progressBar1.Maximum = imageList1.Images.Count-1;
+                for (int i = 0; i <= imageList1.Images.Count - 1; i++)
                 {
-                    Bitmap Image = (Bitmap)imageList1.Images[i]; 
-                    ImageButtons[i].BackgroundImage = Image;
+                    progressBar1.Value = i;
+                    Bitmap monsterImg = (Bitmap)imageList1.Images[i];
+                    DataGridViewImageCell MonsterImageCell = new DataGridViewImageCell();
+                    dataGridView2.Rows[i].Cells[0] = MonsterImageCell;
+                    dataGridView2.Rows[i].Cells[0].Value = monsterImg;
+                    int localCount = 0;
+                    for (int j = 0; j < dataGridView1.RowCount; j++)
+                    {
+                        for (int k = 0; k < dataGridView1.Columns.Count; k++)
+                        {
+                            if (dataGridView1.Rows[j].Cells[k].Value != null && (CompareImages((Bitmap)dataGridView1.Rows[j].Cells[k].Value, monsterImg)))
+                            {
+                                localCount++;
+                            }
+                        }
+                    }
+                    dataGridView2.Rows[i].Cells[1].Value = localCount;
                 }
+                progressBar1.Value = 0;
             }
             else
             {

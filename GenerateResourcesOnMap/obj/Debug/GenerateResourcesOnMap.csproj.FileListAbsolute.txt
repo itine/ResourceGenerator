@@ -16,4 +16,3 @@ C:\Users\alexe\OneDrive\Documents\Visual Studio 2015\Projects\ResourceGenerator\
 C:\Users\alexe\OneDrive\Documents\Visual Studio 2015\Projects\ResourceGenerator\GenerateResourcesOnMap\obj\Debug\GenerateResourcesOnMap.Form1.resources
 C:\Users\alexe\OneDrive\Documents\Visual Studio 2015\Projects\ResourceGenerator\GenerateResourcesOnMap\obj\Debug\GenerateResourcesOnMap.Properties.Resources.resources
 C:\Users\alexe\OneDrive\Documents\Visual Studio 2015\Projects\ResourceGenerator\GenerateResourcesOnMap\obj\Debug\GenerateResourcesOnMap.csproj.GenerateResource.Cache
-C:\Users\alexe\OneDrive\Documents\Visual Studio 2015\Projects\ResourceGenerator\GenerateResourcesOnMap\obj\Debug\GenerateResourcesOnMap.StatForm.resources
