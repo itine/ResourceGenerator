@@ -74,15 +74,12 @@ namespace GenerateResourcesOnMap
                 for (int i = 0; i < dataGridView1.ColumnCount; i++)
                     dataGridView1.Columns.RemoveAt(0);
             dataGridView1.Columns.Clear();
-            foreach (DataGridViewColumn column in this.dataGridView1.Columns)
-            {
-                column.ValueType = typeof(System.Drawing.Bitmap);
-            }
-            DataGridViewCRUD.Create(GenerateMassive(), dataGridView1, imageList1, label1, AllMonsters, progressBar1);
+            DataGridViewCRUD.Create(GenerateMassive(), dataGridView1, imageList1, progressBar1);
             checkBox1.Enabled = true;
         }
+        
 
-
+        //sizeOfDatagrid++
         private void button1_Click(object sender, EventArgs e)
         {
             for (int i = 0; i <= dataGridView1.Columns.Count - 1; i++)
@@ -92,7 +89,7 @@ namespace GenerateResourcesOnMap
 
             }
         }
-
+        //sizeOfDatagrid--
         private void button2_Click(object sender, EventArgs e)
         {
             for (int i = 0; i <= dataGridView1.Columns.Count - 1; i++)
@@ -111,29 +108,10 @@ namespace GenerateResourcesOnMap
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            for (int i = 72; i <= 78; i++)
-            {
-                AllMonsters.Add(imageList1.Images[i]);
-            }
+
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            int count = 0;
-            Bitmap Image;
-            Image = (Bitmap)imageList1.Images[24];
-            for (int i = 0; i < dataGridView1.RowCount; i++)
-            {
-                for (int j = 0; j < dataGridView1.Columns.Count; j++)
-                {
-                    if (dataGridView1.Rows[i].Cells[j].Value != null && (CompareImages((Bitmap)dataGridView1.Rows[i].Cells[j].Value, Image)))
-                    {
-                        count++;
-                    }
-                }
-            }
-            label1.Text += count;
-        }
+        
 
         private static bool CompareImages(Bitmap image1, Bitmap image2)
         {

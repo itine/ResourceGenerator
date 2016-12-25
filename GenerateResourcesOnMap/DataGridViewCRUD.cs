@@ -48,7 +48,7 @@ namespace GenerateResourcesOnMap
         /// </summary>
         /// <param name="matr">Матрица которую выводим в DataGridView</param>
         /// <param name="dataGridView">DataGridView в который выводим</param>
-        public static void Create(int[,] matr, DataGridView dataGridView, ImageList imageList, Label label, List<Image> allMonsters, ProgressBar progressBar)
+        public static void Create(int[,] matr, DataGridView dataGridView, ImageList imageList, ProgressBar progressBar)
         {
             //указываем контроллу в который пишем количество строк и столбцов
             dataGridView.RowCount = matr.GetLength(0);
@@ -102,6 +102,7 @@ namespace GenerateResourcesOnMap
                     }
                 }
             }
+            bool flag = false;
             for (int i = 0; i < matr.GetLength(0); i++)
             {
                 progressBar.Value = progressBarValue++;
@@ -112,38 +113,35 @@ namespace GenerateResourcesOnMap
 
                     if (!ResourceGenerator.IsEmptyCell(rnd.Next(1, 101)))
                     {
-                        //bool flag = false;
-                        //if (i != 0)
-                        //    foreach (var monster in allMonsters)
-                        //    {
-                        //        if (dataGridView.Rows[i - 1].Cells[j].Value != null)
-                        //        {
-                        //            Image monsterImg = imageList.Images[23];
-                        //            DataGridViewImageCell MonsterImageCell = new DataGridViewImageCell();
-                        //            dataGridView.Rows[i].Cells[j] = MonsterImageCell;
-                        //            dataGridView.Rows[i].Cells[j].Value = monsterImg;
-                        //            flag = true;
-                        //        }
-                        //    }
-                        //if (flag)
-                        //    break;
-
                         if (matr[i, j] <= 400 && matr[i, j] > 1)
                         {
                             Image img = imageList.Images[23];
-                            int localRand = rnd.Next(1, 101);
+                            if (rnd.NextDouble() * (1002 - 1) + 1 > 1 && rnd.NextDouble() * (102 - 1) + 1 < 2 && !flag)
+                            {
+                                img = imageList.Images[5];
+                                DataGridViewImageCell ImageCell3 = new DataGridViewImageCell();
+                                dataGridView.Rows[i].Cells[j] = ImageCell3;
+                                dataGridView.Rows[i].Cells[j].Value = img;
+                                flag = true;
+                                continue;
+                            }
+                            double localRand = rnd.NextDouble() * (102 - 1) + 1;
+                            while (localRand <0 || localRand > 100)
+                            {
+                                localRand = rnd.NextDouble() * (102 - 1) + 1;
+                            }
                             //create structure
-                            if (localRand == 1)
+                            if (localRand >= 0 && localRand<=2)
                             {
                                 img = imageList.Images[ResourceGenerator.GenerateStructure(rnd.Next(1, 101))];
                             }
-                            if (localRand > 1 && localRand <= 35)
+                            if (localRand >2 && localRand <= 31.8)
                             {
                                 img = imageList.Images[ResourceGenerator.GenerateDecoration(rnd.Next(1, 101))];
                             }
-                            if (localRand > 35 && localRand <= 56)
+                            if (localRand > 31.8 && localRand <= 47.8)
                             {
-                                img = imageList.Images[ResourceGenerator.GenerateResource(rnd.Next(1, 101))];
+                                img = imageList.Images[ResourceGenerator.GenerateResource(rnd.NextDouble() * (102 - 1) + 1)];
                                 if (rnd.Next(1, 101) <= 81)
                                 {
                                     Image monsterImg = imageList.Images[ResourceGenerator.GenerateMonster(1, rnd.Next(1, 101))];
@@ -160,7 +158,7 @@ namespace GenerateResourcesOnMap
                                     }
                                 }
                             }
-                            if (localRand > 56 && localRand <= 58)
+                            if (localRand > 47.8 && localRand <= 48)
                             {
                                 img = imageList.Images[ResourceGenerator.GenerateArtifact(rnd.Next(1, 101))];
                                 Image monsterImg = imageList.Images[ResourceGenerator.GenerateMonster(1, rnd.Next(1, 101))];
@@ -176,11 +174,11 @@ namespace GenerateResourcesOnMap
                                     dataGridView.Rows[i].Cells[j - 1].Value = monsterImg;
                                 }
                             }
-                            if (localRand > 58 && localRand <= 59)
+                            if (localRand > 48 && localRand <= 49)
                             {
-                                img = imageList.Images[71];
+                                img = imageList.Images[ResourceGenerator.GenerateMonsterLair(1, rnd.Next(1, 101))];
                             }
-                            if (localRand > 59 && localRand <= 100)
+                            if (localRand > 49 && localRand <= 100)
                             {
                                 img = imageList.Images[ResourceGenerator.GenerateMonster(1, rnd.Next(1, 101))];
                             }
@@ -192,19 +190,32 @@ namespace GenerateResourcesOnMap
                         if (matr[i, j] <= 1600 && matr[i, j] > 400)
                         {
                             Image img = imageList.Images[23];
-                            int localRand = rnd.Next(1, 101);
+                            if (rnd.NextDouble() * (1002 - 1) + 1 > 1 && rnd.NextDouble() * (102 - 1) + 1 < 2 && !flag)
+                            {
+                                img = imageList.Images[5];
+                                DataGridViewImageCell ImageCell3 = new DataGridViewImageCell();
+                                dataGridView.Rows[i].Cells[j] = ImageCell3;
+                                dataGridView.Rows[i].Cells[j].Value = img;
+                                flag = true;
+                                continue;
+                            }
+                            double localRand = rnd.NextDouble() * (102 - 1) + 1;
+                            while (localRand < 0 || localRand > 100)
+                            {
+                                localRand = rnd.NextDouble() * (102 - 1) + 1;
+                            }
                             //create structure
-                            if (localRand == 1)
+                            if (localRand >= 0 && localRand<=2)
                             {
                                 img = imageList.Images[ResourceGenerator.GenerateStructure(rnd.Next(1, 101))];
                             }
-                            if (localRand > 1 && localRand <= 32)
+                            if (localRand > 2 && localRand <= 28.8)
                             {
                                 img = imageList.Images[ResourceGenerator.GenerateDecoration(rnd.Next(1, 101))];
                             }
-                            if (localRand > 32 && localRand <= 56)
+                            if (localRand > 28.8 && localRand <= 47.8)
                             {
-                                img = imageList.Images[ResourceGenerator.GenerateResource(rnd.Next(1, 101))];
+                                img = imageList.Images[ResourceGenerator.GenerateResource(rnd.NextDouble() * (102 - 1) + 1)];
                                 if (rnd.Next(1, 101) <= 81)
                                 {
                                     Image monsterImg = imageList.Images[ResourceGenerator.GenerateMonster(2, rnd.Next(1, 101))];
@@ -221,7 +232,7 @@ namespace GenerateResourcesOnMap
                                     }
                                 }
                             }
-                            if (localRand > 56 && localRand <= 58)
+                            if (localRand > 47.8 && localRand <= 48)
                             {
                                 img = imageList.Images[ResourceGenerator.GenerateArtifact(rnd.Next(1, 101))];
                                 Image monsterImg = imageList.Images[ResourceGenerator.GenerateMonster(2, rnd.Next(1, 101))];
@@ -237,11 +248,11 @@ namespace GenerateResourcesOnMap
                                     dataGridView.Rows[i].Cells[j - 1].Value = monsterImg;
                                 }
                             }
-                            if (localRand > 58 && localRand <= 59)
+                            if (localRand > 48 && localRand <= 49)
                             {
-                                img = imageList.Images[71];
+                                img = imageList.Images[ResourceGenerator.GenerateMonsterLair(2, rnd.Next(1, 101))];
                             }
-                            if (localRand > 59 && localRand <= 100)
+                            if (localRand > 49 && localRand <= 100)
                             {
                                 img = imageList.Images[ResourceGenerator.GenerateMonster(2, rnd.Next(1, 101))];
                             }
@@ -252,19 +263,32 @@ namespace GenerateResourcesOnMap
                         if (matr[i, j] <= 3600 && matr[i, j] > 1600)
                         {
                             Image img = imageList.Images[23];
-                            int localRand = rnd.Next(1, 101);
+                            if (rnd.NextDouble() * (1002 - 1) + 1 > 1 && rnd.NextDouble() * (102 - 1) + 1 < 2 && !flag)
+                            {
+                                img = imageList.Images[5];
+                                DataGridViewImageCell ImageCell3 = new DataGridViewImageCell();
+                                dataGridView.Rows[i].Cells[j] = ImageCell3;
+                                dataGridView.Rows[i].Cells[j].Value = img;
+                                flag = true;
+                                continue;
+                            }
+                            double localRand = rnd.NextDouble() * (102 - 1) + 1;
+                            while (localRand < 0 || localRand > 100)
+                            {
+                                localRand = rnd.NextDouble() * (102 - 1) + 1;
+                            }
                             //create structure
-                            if (localRand == 1)
+                            if (localRand >= 0 && localRand <=2)
                             {
                                 img = imageList.Images[ResourceGenerator.GenerateStructure(rnd.Next(1, 101))];
                             }
-                            if (localRand > 1 && localRand <= 27)
+                            if (localRand > 2 && localRand <= 25.7)
                             {
                                 img = imageList.Images[ResourceGenerator.GenerateDecoration(rnd.Next(1, 101))];
                             }
-                            if (localRand > 27 && localRand <= 54)
+                            if (localRand > 25.7 && localRand <= 47.7)
                             {
-                                img = imageList.Images[ResourceGenerator.GenerateResource(rnd.Next(1, 101))];
+                                img = imageList.Images[ResourceGenerator.GenerateResource(rnd.NextDouble() * (102 - 1) + 1)];
                                 if (rnd.Next(1, 101) <= 81)
                                 {
                                     Image monsterImg = imageList.Images[ResourceGenerator.GenerateMonster(3, rnd.Next(1, 101))];
@@ -281,7 +305,7 @@ namespace GenerateResourcesOnMap
                                     }
                                 }
                             }
-                            if (localRand > 54 && localRand <= 57)
+                            if (localRand > 47.7 && localRand <= 48)
                             {
                                 img = imageList.Images[ResourceGenerator.GenerateArtifact(rnd.Next(1, 101))];
                                 Image monsterImg = imageList.Images[ResourceGenerator.GenerateMonster(3, rnd.Next(1, 101))];
@@ -297,11 +321,11 @@ namespace GenerateResourcesOnMap
                                     dataGridView.Rows[i].Cells[j - 1].Value = monsterImg;
                                 }
                             }
-                            if (localRand > 57 && localRand <= 59)
+                            if (localRand > 48 && localRand <= 49)
                             {
-                                img = imageList.Images[71];
+                                img = imageList.Images[ResourceGenerator.GenerateMonsterLair(3, rnd.Next(1, 101))];
                             }
-                            if (localRand > 59 && localRand <= 100)
+                            if (localRand > 49 && localRand <= 100)
                             {
                                 img = imageList.Images[ResourceGenerator.GenerateMonster(3, rnd.Next(1, 101))];
                             }
@@ -312,19 +336,32 @@ namespace GenerateResourcesOnMap
                         if (matr[i, j] <= 6400 && matr[i, j] > 3600)
                         {
                             Image img = imageList.Images[23];
-                            int localRand = rnd.Next(1, 101);
+                            if (rnd.NextDouble() * (1002 - 1) + 1 > 1 && rnd.NextDouble() * (102 - 1) + 1 < 2 && !flag)
+                            {
+                                img = imageList.Images[5];
+                                DataGridViewImageCell ImageCell3 = new DataGridViewImageCell();
+                                dataGridView.Rows[i].Cells[j] = ImageCell3;
+                                dataGridView.Rows[i].Cells[j].Value = img;
+                                flag = true;
+                                continue;
+                            }
+                            double localRand = rnd.NextDouble() * (102 - 1) + 1;
+                            while (localRand < 0 || localRand > 100)
+                            {
+                                localRand = rnd.NextDouble() * (102 - 1) + 1;
+                            }
                             //create structure
-                            if (localRand == 1)
+                            if (localRand >= 0 && localRand <=2)
                             {
                                 img = imageList.Images[ResourceGenerator.GenerateStructure(rnd.Next(1, 101))];
                             }
-                            if (localRand > 1 && localRand <= 24)
+                            if (localRand > 2 && localRand <= 22.7)
                             {
                                 img = imageList.Images[ResourceGenerator.GenerateDecoration(rnd.Next(1, 101))];
                             }
-                            if (localRand > 24 && localRand <= 54)
+                            if (localRand > 22.7 && localRand <= 47.7)
                             {
-                                img = imageList.Images[ResourceGenerator.GenerateResource(rnd.Next(1, 101))];
+                                img = imageList.Images[ResourceGenerator.GenerateResource(rnd.NextDouble() * (102 - 1) + 1)];
                                 if (rnd.Next(1, 101) <= 81)
                                 {
                                     Image monsterImg = imageList.Images[ResourceGenerator.GenerateMonster(4, rnd.Next(1, 101))];
@@ -341,7 +378,7 @@ namespace GenerateResourcesOnMap
                                     }
                                 }
                             }
-                            if (localRand > 54 && localRand <= 57)
+                            if (localRand > 47.7 && localRand <= 48)
                             {
                                 img = imageList.Images[ResourceGenerator.GenerateArtifact(rnd.Next(1, 101))];
                                 Image monsterImg = imageList.Images[ResourceGenerator.GenerateMonster(4, rnd.Next(1, 101))];
@@ -357,11 +394,11 @@ namespace GenerateResourcesOnMap
                                     dataGridView.Rows[i].Cells[j - 1].Value = monsterImg;
                                 }
                             }
-                            if (localRand > 57 && localRand <= 59)
+                            if (localRand > 48 && localRand <= 49)
                             {
-                                img = imageList.Images[71];
+                                img = imageList.Images[ResourceGenerator.GenerateMonsterLair(4,  rnd.Next(1, 101))];
                             }
-                            if (localRand > 59 && localRand <= 100)
+                            if (localRand > 49 && localRand <= 100)
                             {
                                 img = imageList.Images[ResourceGenerator.GenerateMonster(4, rnd.Next(1, 101))];
                             }
@@ -372,19 +409,32 @@ namespace GenerateResourcesOnMap
                         if (matr[i, j] <= 14400 && matr[i, j] > 6400)
                         {
                             Image img = imageList.Images[23];
-                            int localRand = rnd.Next(1, 101);
+                            if (rnd.NextDouble() * (1002 - 1) + 1 > 1 && rnd.NextDouble() * (102 - 1) + 1 < 2 && !flag)
+                            {
+                                img = imageList.Images[5];
+                                DataGridViewImageCell ImageCell3 = new DataGridViewImageCell();
+                                dataGridView.Rows[i].Cells[j] = ImageCell3;
+                                dataGridView.Rows[i].Cells[j].Value = img;
+                                flag = true;
+                                continue;
+                            }
+                            double localRand = rnd.NextDouble() * (102 - 1) + 1;
+                            while (localRand < 0 || localRand > 100)
+                            {
+                                localRand = rnd.NextDouble() * (102 - 1) + 1;
+                            }
                             //create structure
-                            if (localRand == 1)
+                            if (localRand >= 0 && localRand<=2)
                             {
                                 img = imageList.Images[ResourceGenerator.GenerateStructure(rnd.Next(1, 101))];
                             }
-                            if (localRand > 1 && localRand <= 19)
+                            if (localRand >2 && localRand <= 19.6)
                             {
                                 img = imageList.Images[ResourceGenerator.GenerateDecoration(rnd.Next(1, 101))];
                             }
-                            if (localRand > 19 && localRand <= 52)
+                            if (localRand > 19.6 && localRand <= 47.6)
                             {
-                                img = imageList.Images[ResourceGenerator.GenerateResource(rnd.Next(1, 101))];
+                                img = imageList.Images[ResourceGenerator.GenerateResource(rnd.NextDouble() * (102 - 1) + 1)];
                                 if (rnd.Next(1, 101) <= 81)
                                 {
                                     Image monsterImg = imageList.Images[ResourceGenerator.GenerateMonster(5, rnd.Next(1, 101))];
@@ -401,7 +451,7 @@ namespace GenerateResourcesOnMap
                                     }
                                 }
                             }
-                            if (localRand > 52 && localRand <= 56)
+                            if (localRand > 47.6 && localRand <= 48)
                             {
                                 img = imageList.Images[ResourceGenerator.GenerateArtifact(rnd.Next(1, 101))];
                                 Image monsterImg = imageList.Images[ResourceGenerator.GenerateMonster(5, rnd.Next(1, 101))];
@@ -417,11 +467,11 @@ namespace GenerateResourcesOnMap
                                     dataGridView.Rows[i].Cells[j - 1].Value = monsterImg;
                                 }
                             }
-                            if (localRand > 56 && localRand <= 59)
+                            if (localRand > 48 && localRand <= 49)
                             {
-                                img = imageList.Images[71];
+                                img = imageList.Images[ResourceGenerator.GenerateMonsterLair(5, rnd.Next(1, 101))];
                             }
-                            if (localRand > 59 && localRand <= 100)
+                            if (localRand > 49 && localRand <= 100)
                             {
                                 img = imageList.Images[ResourceGenerator.GenerateMonster(5, rnd.Next(1, 101))];
                             }
@@ -432,19 +482,32 @@ namespace GenerateResourcesOnMap
                         if (matr[i, j] <= 25600 && matr[i, j] > 14400)
                         {
                             Image img = imageList.Images[23];
-                            int localRand = rnd.Next(1, 101);
+                            if (rnd.NextDouble() * (1002 - 1) + 1 > 1 && rnd.NextDouble() * (102 - 1) + 1 < 2 && !flag)
+                            {
+                                img = imageList.Images[5];
+                                DataGridViewImageCell ImageCell3 = new DataGridViewImageCell();
+                                dataGridView.Rows[i].Cells[j] = ImageCell3;
+                                dataGridView.Rows[i].Cells[j].Value = img;
+                                flag = true;
+                                continue;
+                            }
+                            double localRand = rnd.NextDouble() * (102 - 1) + 1;
+                            while (localRand < 0 || localRand > 100)
+                            {
+                                localRand = rnd.NextDouble() * (102 - 1) + 1;
+                            }
                             //create structure
-                            if (localRand == 1)
+                            if (localRand >= 0 && localRand <= 2)
                             {
                                 img = imageList.Images[ResourceGenerator.GenerateStructure(rnd.Next(1, 101))];
                             }
-                            if (localRand > 1 && localRand <= 21)
+                            if (localRand > 2 && localRand <= 22.5)
                             {
                                 img = imageList.Images[ResourceGenerator.GenerateDecoration(rnd.Next(1, 101))];
                             }
-                            if (localRand > 21 && localRand <= 56)
+                            if (localRand > 22.5 && localRand <= 52.5)
                             {
-                                img = imageList.Images[ResourceGenerator.GenerateResource(rnd.Next(1, 101))];
+                                img = imageList.Images[ResourceGenerator.GenerateResource(rnd.NextDouble() * (102 - 1) + 1)];
                                 if (rnd.Next(1, 101) <= 81)
                                 {
                                     Image monsterImg = imageList.Images[ResourceGenerator.GenerateMonster(6, rnd.Next(1, 101))];
@@ -461,7 +524,7 @@ namespace GenerateResourcesOnMap
                                     }
                                 }
                             }
-                            if (localRand > 56 && localRand <= 61)
+                            if (localRand > 52.5 && localRand <= 53)
                             {
                                 img = imageList.Images[ResourceGenerator.GenerateArtifact(rnd.Next(1, 101))];
                                 Image monsterImg = imageList.Images[ResourceGenerator.GenerateMonster(6, rnd.Next(1, 101))];
@@ -478,11 +541,11 @@ namespace GenerateResourcesOnMap
                                     dataGridView.Rows[i].Cells[j - 1].Value = monsterImg;
                                 }
                             }
-                            if (localRand > 61 && localRand <= 64)
+                            if (localRand > 53 && localRand <= 54)
                             {
-                                img = imageList.Images[71];
+                                img = imageList.Images[ResourceGenerator.GenerateMonsterLair(6, rnd.Next(1, 101))];
                             }
-                            if (localRand > 64 && localRand <= 100)
+                            if (localRand > 54 && localRand <= 100)
                             {
                                 img = imageList.Images[ResourceGenerator.GenerateMonster(6, rnd.Next(1, 101))];
                             }
@@ -494,19 +557,32 @@ namespace GenerateResourcesOnMap
                         if (matr[i, j] <= 40000 && matr[i, j] > 25600)
                         {
                             Image img = imageList.Images[23];
-                            int localRand = rnd.Next(1, 101);
+                            if (rnd.NextDouble() * (1002 - 1) + 1 > 1 && rnd.NextDouble() * (102 - 1) + 1 < 2 && !flag)
+                            {
+                                img = imageList.Images[5];
+                                DataGridViewImageCell ImageCell3 = new DataGridViewImageCell();
+                                dataGridView.Rows[i].Cells[j] = ImageCell3;
+                                dataGridView.Rows[i].Cells[j].Value = img;
+                                flag = true;
+                                continue;
+                            }
+                            double localRand = rnd.NextDouble() * (102 - 1) + 1;
+                            while (localRand < 0 || localRand > 100)
+                            {
+                                localRand = rnd.NextDouble() * (102 - 1) + 1;
+                            }
                             //create structure
-                            if (localRand == 1)
+                            if (localRand >= 0 && localRand <= 2)
                             {
                                 img = imageList.Images[ResourceGenerator.GenerateStructure(rnd.Next(1, 101))];
                             }
-                            if (localRand > 1 && localRand <= 21)
+                            if (localRand > 2 && localRand <= 24)
                             {
                                 img = imageList.Images[ResourceGenerator.GenerateDecoration(rnd.Next(1, 101))];
                             }
-                            if (localRand > 21 && localRand <= 56)
+                            if (localRand > 24 && localRand <= 57)
                             {
-                                img = imageList.Images[ResourceGenerator.GenerateResource(rnd.Next(1, 101))];
+                                img = imageList.Images[ResourceGenerator.GenerateResource(rnd.NextDouble() * (102 - 1) + 1)];
                                 if (rnd.Next(1, 101) <= 81)
                                 {
                                     Image monsterImg = imageList.Images[ResourceGenerator.GenerateMonster(7, rnd.Next(1, 101))];
@@ -523,7 +599,7 @@ namespace GenerateResourcesOnMap
                                     }
                                 }
                             }
-                            if (localRand > 56 && localRand <= 62)
+                            if (localRand > 57 && localRand <= 58)
                             {
                                 img = imageList.Images[ResourceGenerator.GenerateArtifact(rnd.Next(1, 101))];
                                 Image monsterImg = imageList.Images[ResourceGenerator.GenerateMonster(7, rnd.Next(1, 101))];
@@ -539,11 +615,11 @@ namespace GenerateResourcesOnMap
                                     dataGridView.Rows[i].Cells[j - 1].Value = monsterImg;
                                 }
                             }
-                            if (localRand > 62 && localRand <= 66)
+                            if (localRand > 58 && localRand <= 59)
                             {
-                                img = imageList.Images[71];
+                                img = imageList.Images[ResourceGenerator.GenerateMonsterLair(7, rnd.Next(1, 101))];
                             }
-                            if (localRand > 66 && localRand <= 100)
+                            if (localRand > 59 && localRand <= 100)
                             {
                                 img = imageList.Images[ResourceGenerator.GenerateMonster(7, rnd.Next(1, 101))];
                             }

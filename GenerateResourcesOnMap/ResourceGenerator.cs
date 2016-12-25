@@ -20,20 +20,10 @@ namespace GenerateResourcesOnMap
 
         public static int GenerateStructure(int local)
         {
-            if (local == 1)
-                return 0;
-            if (local == 2)
-                return 1;
-            if (local == 3)
-                return 2;
-            if (local == 4)
-                return 3;
-            if (local == 5)
-                return 4;
-            if (local == 6)
-                return 5;
-            if (local == 7)
+            if (local <= 6)
                 return 6;
+            if (local == 7)
+                return 4;
 
             if (local > 7 && local <= 10)
                 return 7;
@@ -97,29 +87,33 @@ namespace GenerateResourcesOnMap
             return -1;
         }
 
-        public static int GenerateResource(int local)
+        public static int GenerateResource(double local)
         {
+            while (local < 0 || local > 100)
+            {
+                local = rnd.NextDouble() * (102 - 1) + 1;
+            }
             if (local >= 1 && local <= 20)
                 return 34;
-            if (local >= 20 && local <= 30)
+            if (local > 20 && local <= 32)
                 return 35;
-            if (local >= 30 && local <= 36)
+            if (local > 32 && local <= 39)
                 return 36;
-            if (local >= 36 && local <= 52)
+            if (local > 39 && local <= 55)
                 return 37;
-            if (local >= 52 && local <= 68)
+            if (local > 55 && local <= 71)
                 return 38;
-            if (local >= 68 && local <= 75)
+            if (local > 71 && local <= 78)
                 return 39;
-            if (local >= 75 && local <= 82)
+            if (local > 78 && local <= 85)
                 return 40;
-            if (local >= 82 && local <= 89)
+            if (local > 85 && local <= 92)
                 return 41;
-            if (local >= 89 && local <= 96)
+            if (local > 92 && local <= 99)
                 return 42;
-            if (local >= 96 && local <= 98)
+            if (local > 99 && local <= 99.5)
                 return 43;
-            if (local >= 98 && local <= 100)
+            if (local > 99.5 && local <= 100)
                 return 44;
             return -1;
         }
@@ -257,5 +251,54 @@ namespace GenerateResourcesOnMap
             return -1;
         }
 
+        public static int GenerateMonsterLair(int zone, int local)
+        {
+            switch (zone)
+            {
+                case 1:
+                    if (local >= 1 && local <= 50)
+                        return 79;
+                    if (local > 50 && local <= 100)
+                        return 80;
+                    break;
+                case 2:
+                    if (local >= 1 && local <= 50)
+                        return 80;
+                    if (local > 50 && local <= 100)
+                        return 81; 
+                    break;
+                case 3:
+                    if (local >= 1 && local <= 50)
+                        return 81;
+                    if (local > 50 && local <= 100)
+                        return 82;
+                    break;
+                case 4:
+                    if (local >= 1 && local <= 50)
+                        return 82;
+                    if (local > 50 && local <= 100)
+                        return 83;
+                    break;
+                case 5:
+                    if (local >= 1 && local <= 50)
+                        return 83;
+                    if (local > 50 && local <= 100)
+                        return 84;
+                    break;
+                case 6:
+                    if (local >= 1 && local <= 20)
+                        return 83;
+                    if (local > 20 && local <= 100)
+                        return 84;
+                    break;
+                case 7:
+                    if (local >= 1 && local <= 90)
+                        return 84;
+                    if (local > 90 && local <= 100)
+                        return 85;
+                    break;
+            }
+            return -1;
+        }
     }
 }
